@@ -34,12 +34,6 @@ interface TrackerDao {
     @Query("SELECT category, SUM(amount) as total_amount FROM $table_name WHERE date = :date GROUP BY category")
     fun getSumByCategoryForDate(date: String): Flow<List<CategoryAmountSum>>
 
-    @Query("""
-    SELECT date, category, SUM(amount) as total_amount
-    FROM $table_name
-    WHERE date IN (:last7Days)
-    GROUP BY date, category
-""")
-    fun getSumByDateAndCategoryLast7Days(last7Days: List<String>): Flow<List<CategoryDateAmount>>
-
+    @Query("SELECT * FROM $table_name WHERE date IN (:dates)")
+    suspend fun getExpensesForDates(dates: List<String>): List<TrackerModel>
 }

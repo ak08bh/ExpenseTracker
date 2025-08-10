@@ -11,10 +11,13 @@ import com.example.expensetracker.model.CategoryDateAmount
 import com.example.expensetracker.model.TrackerModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,12 +29,15 @@ class TrackerViewModel @Inject constructor(val dao: TrackerDao) : ViewModel() {
     val popupNotification = mutableStateOf<Event<String>?>(null)
     val totalSpentToday =   mutableStateOf(0.0)
 
+    private val _expenseMap = MutableStateFlow<Map<String, Map<String, Double>>>(emptyMap())
+    val expenseMap: StateFlow<Map<String, Map<String, Double>>> = _expenseMap
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    val formatter = DateTimeFormatter.ofPattern("MMM d yyyy", Locale.getDefault())
+
     init {
         totalSpentToday()
     }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-
 
     //validation for title and amount
     fun checkValidation(title: String, amount: String, category: String): Boolean {
@@ -128,9 +134,31 @@ class TrackerViewModel @Inject constructor(val dao: TrackerDao) : ViewModel() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getLast7DaysCategorySumsFlow(): Flow<List<CategoryDateAmount>> {
-        val last7DaysDates = getLast7DaysFormatted()
-        return dao.getSumByDateAndCategoryLast7Days(last7DaysDates)
+    fun getLast7Days(): List<String> {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val today = LocalDate.now()
+        return (0L..6L).map { today.minusDays(it).format(formatter) }.reversed()
     }
+    @RequiresApi(Build.VERSION_CODES.O)
+     fun loadLast7DaysExpenses() {
+        viewModelScope.launch {
+            val last7Dates = (0..6).map {
+                LocalDate.now().minusDays(it.toLong()).format(formatter)
+            }
+
+            val expenses = dao.getExpensesForDates(last7Dates)
+
+            val map = expenses.groupBy { it.date }
+                .mapValues { entry ->
+                    entry.value.groupBy { it.category }
+                        .mapValues { catEntry ->
+                            catEntry.value.sumOf { it.amount }
+                        }
+                }
+
+            _expenseMap.value = map
+        }
+    }
+
 
 }

@@ -54,19 +54,28 @@ fun ExpenseReportScreen(viewModel: TrackerViewModel, navController: NavControlle
     val amountMap = expenseSums.associateBy({ it.category }, { it.total_amount })
 
     // Collect last 7 days data once from ViewModel
-    val categorySumsByDate by viewModel.getLast7DaysCategorySumsFlow().collectAsState(initial = emptyList())
-
-    // Create expenseMap for your table
-    val expenseMap: Map<String, Map<String, Double>> = categorySumsByDate
-        .groupBy { it.date }
-        .mapValues { entry -> entry.value.associate { it.category to it.total_amount } }
+    val dummyExpenseMap = mapOf(
+        "Aug 10 2025" to mapOf(
+            "Food" to 120.0,
+            "Travel" to 80.0,
+            "Shopping" to 200.0
+        ),
+        "Aug 09 2025" to mapOf(
+            "Food" to 150.0,
+            "Travel" to 60.0
+        ),
+        "Aug 08 2025" to mapOf(
+            "Food" to 90.0,
+            "Shopping" to 300.0
+        )
+    )
 
     Column(modifier = Modifier
         .fillMaxSize()
         .verticalScroll(rememberScrollState())) {
         WeeklyExpenseBarChart(expenses = dummyData, modifier = Modifier.padding(top = 16.dp))
         Spacer(modifier = Modifier.height(16.dp))
-        WeeklyExpenseTableDynamicScrollable(expenseMap)
+        WeeklyExpenseTableDynamicScrollable(dummyExpenseMap)
         Spacer(modifier = Modifier.height(16.dp))
         DailyTotalsHeader(amountMap)
     }

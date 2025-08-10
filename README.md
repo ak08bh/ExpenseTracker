@@ -11,4 +11,26 @@ Prompt Logs :
 8. Suggest how to show error messages inline for invalid inputs in Compose TextFields.
 9. How can I improve my prompts to get more accurate Kotlin code from AI for Android app development?
 10. Rewrite this prompt to get a ViewModel with proper coroutine usage for database insertions and error handling
+screenshots --
+11.
+![Screenshot 2025-08-10 092921.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092921.png)
+![Screenshot 2025-08-10 085914.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20085914.png)
+![Screenshot 2025-08-10 085922.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20085922.png)
+![Screenshot 2025-08-10 085944.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20085944.png)
+![Screenshot 2025-08-10 085954.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20085954.png)
+![Screenshot 2025-08-10 090011.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20090011.png)
+![Screenshot 2025-08-10 090107.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20090107.png)
+![Screenshot 2025-08-10 090207.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20090207.png)
+![Screenshot 2025-08-10 090231.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20090231.png)
+![Screenshot 2025-08-10 091250.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20091250.png)
+![Screenshot 2025-08-10 091415.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20091415.png)
+![Screenshot 2025-08-10 091633.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20091633.png)
+![Screenshot 2025-08-10 092152.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092152.png)
+![Screenshot 2025-08-10 092305.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092305.png)
+![Screenshot 2025-08-10 092439.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092439.png)
+![Screenshot 2025-08-10 092636.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092636.png)
+![Screenshot 2025-08-10 092726.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092726.png)
+![Screenshot 2025-08-10 092800.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092800.png)
+![Screenshot 2025-08-10 092813.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092813.png)
+![Screenshot 2025-08-10 092822.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092822.png)
     
