@@ -1,5 +1,7 @@
 package com.example.expensetracker
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -62,6 +64,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.zIndex
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ExpenseEntryScreen(viewModel: TrackerViewModel, navController: NavController) {
     val focus = LocalFocusManager.current
