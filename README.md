@@ -33,4 +33,41 @@ screenshots --
 ![Screenshot 2025-08-10 092800.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092800.png)
 ![Screenshot 2025-08-10 092813.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092813.png)
 ![Screenshot 2025-08-10 092822.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202025-08-10%20092822.png)
+
+CheckList of features implemented--
+
+1. Expense Entry Screen
+   Input fields:
+   Title (text)
+   Amount (₹)
+   Category (mocked list: Staff, Travel, Food, Utility)
+   Optional Notes (max 100 chars)
+   Optional Receipt Image (upload or mock)
+   Jetpack Compose (preferred) or XML-based
+   Submit Button: Adds expense, shows Toast, animates entry
+   Show real-time “Total Spent Today” at top
+2.  Expense List Screen
+    View expenses for:
+    Today (default)
+    Previous dates via calendar or filter
+    Group by category or time (toggle)
+    Show: Total count, total amount, empty state
+3. . Expense Report Screen
+   Mock report for last 7 days:
+   Daily totals
+   Bar or line chart (mocked)
+4. State Management & Data Layer
+
+   ViewModel + StateFlow (or LiveData)
+   Room 
+   Handle screen transitions via Navigation
+5.Persist data locally (Room)
+   Animation on add
+   Duplicate detection
+   Validation (amount > 0, title non-empty)
+   Reusable UI components
+
+
+apk link -- https://docs.google.com/uc?export=download&id=1pUxgLlBJzACf6-I2nWEQz3y7i5Nsu4hE
+
     
